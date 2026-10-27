@@ -1,6 +1,6 @@
 {
   "name": "@pipeworx/mcp-law-commission",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Law Commission of England & Wales — publications and law-reform projects.",
   "type": "module",
   "main": "src/index.ts",
@@ -26,7 +26,7 @@
     "@cloudflare/workers-types": "^4.20260405.1"
   },
   "pipeworx": {
-    "sourceHash": "v1-8168561133af078fa77776104cb3d73a16c4bdb420c5b27b28ddd8a6c037597d",
-    "sourceCommit": "1064560fd9dcd0d6fc2606298c2ba244b3a1fbeb"
+    "sourceHash": "v1-68871c5e44e999cd0f68a164e86a364dce5a44f8e0f67755b6d4a5005c3542d8",
+    "sourceCommit": "33741fe6d9ba71856e73fa683c73572d1ddf2e93"
   }
 }
