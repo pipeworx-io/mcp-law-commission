@@ -1,0 +1,53 @@
+[
+  {
+    "name": "search_law_commission_publications",
+    "description": "Search consultation papers, reports, summaries and terms-of-reference published by the Law Commission of England & Wales (lawcom.gov.uk) — the independent statutory body that reviews the law and recommends reform. Returns title, link and date for each match (excerpt is usually empty upstream — the publication record itself carries only a project link, not a summary; call get_law_commission_publication for the project and any attached PDF report). Welsh-language duplicates of an English publication are filtered out automatically (the Commission republishes the same report under a separate id in Welsh), so results are one row per report. Omit query to get the most recent publications.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string",
+          "description": "Free-text search over publication titles and content, e.g. \"leasehold\" or \"surrogacy\". Omit for the most recent publications."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Publications to return, 1-50 (default 10)."
+        }
+      }
+    }
+  },
+  {
+    "name": "get_law_commission_publication",
+    "description": "Fetch one Law Commission of England & Wales publication (a consultation paper, report, summary or terms-of-reference) by its id (from search_law_commission_publications) or its lawcom.gov.uk link. Returns the law-reform project it belongs to and links to any attached PDF documents — the actual report text is the PDF; the WordPress record itself typically carries only a project link, not report prose.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "Publication id, from search_law_commission_publications."
+        },
+        "link": {
+          "type": "string",
+          "description": "A lawcom.gov.uk/publication/... link, as an alternative to id."
+        }
+      }
+    }
+  },
+  {
+    "name": "list_law_commission_projects",
+    "description": "List law-reform projects run by the Law Commission of England & Wales (lawcom.gov.uk/project) — the workstreams under which its consultation papers and reports are published, e.g. \"Commercial leasehold\" or \"Consumer class actions\". Optionally narrow by status. Welsh-language duplicates are filtered out, one row per project.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "description": "Filter by project status: \"current\", \"completed\", \"upcoming\", or \"other\". Omit to list all statuses."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Projects to return, 1-50 (default 20)."
+        }
+      }
+    }
+  }
+]
